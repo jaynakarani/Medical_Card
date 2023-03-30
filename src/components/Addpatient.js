@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 function Addpatient() {
   const [patient, setPatient] = useState({name: "", email: "", mobile: null, bloodg:"", age: null,gender:"", aadhar:"", address:"", comment:""});
   const Navigate = useNavigate();
+  
   const handleclick = async (e) => {
     e.preventDefault();
     const response = await axios.post('http://localhost:4000/api/patient/addpatient',{
@@ -18,7 +19,9 @@ function Addpatient() {
             aadhar:patient.aadhar,
             address:patient.address,
             comments:patient.comment,
+      
     })
+    console.log(patient.name);
     console.log(response.data);
     if(response.data)
     {
